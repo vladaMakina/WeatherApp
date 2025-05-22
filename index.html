@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" />
+   <link rel="stylesheet" href="style\css_air.css">
+   <title>AirPollutionApp</title>
+</head>
+<body>
+   <div class="container">
+      <div class="row">
+         <div hidden id="spinner"></div>
+         <div class="col-md-9 mx-auto text-center bg-primary mt-3 p-5-rounded" id="parent-div">
+            <h1 id="w-location"></h1>
+            <h3 id="w-aqi"></h3>
+            <div class="col-md-4 mx-auto text-center" id="pollution-sign">Good</div>
+            <div class="description-container mb-3" id="desc-parent">
+               <p id="description-1"></p>
+               <p id="description-2"></p>
+               <p id="description-3"></p>
+            </div>
+            <div style="display: flex; flex-direction: row; justify-content: center; height: 55px;">
+               <img id="w-icon" style="width: 60px;" />
+               <h3 class="text-dark" style="align-self:center;margin-left: 20px;" id="w-temp">
+               </h3>
+            </div>
+            <ul id="w-details" class="list-group mt-3">
+               <li class="list-group-item" id="w-timestamp"></li>
+               <li class="list-group-item" id="w-humidity"></li>
+               <li class="list-group-item" id="w-pressure"></li>
+               <li class="list-group-item" id="w-wind-direction"></li>
+               <li class="list-group-item" id="w-wind-speed"></li>
+            </ul>
+            <hr />
+
+            <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#locModal">
+               Change Location
+            </button>
+         </div>
+      </div>
+   </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="locModal" tabindex="-1" role="dialog" aria-labelledby="locModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="locModalLabel">Choose Location</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <form id="form" autocomplete="notWorkingOff">
+
+                  <!-- Country -->
+                  <div class="form-group" id="country-form">
+                     <label class="form-control-label" for="country">Country</label>
+                     <input type="text" id="countryInput" class="form-control" placeholder="Enter Country"
+                        autocomplete="notWorkingOff" />
+                     <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+                     <input style="display:none" type="text" name="fakeusernameremembered" />
+                  </div>
+                  <div id="country-match-list"></div>
+
+                  <!-- State -->
+                  <div class="form-group" style="display: none;" id="state-form">
+                     <label class="col-form-label" for="inputDefault">Enter State</label>
+                     <input type="text" class="form-control" placeholder="Enter State" id="stateInput"
+                        autocomplete="notWorkingOff" />
+                  </div>
+                  <div id="state-match-list"></div>
+
+                  <!-- City -->
+                  <div class="form-group" style="display: none;" id="city-form">
+                     <label class="col-form-label" for="inputDefault">Enter City</label>
+                     <input type="text" class="form-control" placeholder="Enter City" id="cityInput"
+                        autocomplete="notWorkingOff" />
+                  </div>
+                  <div id="city-match-list"></div>
+
+                  <!-- Validation Info -->
+                  <div id="modal-info">
+                     <div class="alert alert-dismissible alert-primary">
+                        <strong>Oh snap!</strong> Please choose country/state/city from a drop down list and
+                        try again.
+                        <br>
+                        <i><strong>Note!</strong> Some countries/states/cities are not available.</i>
+                     </div>
+                  </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Close
+               </button>
+               <button id="w-change-btn" type="button" class="btn btn-primary">
+                  Save changes
+               </button>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+
+   <script src="Scripts\autocomplete.js"></script>
+   <script src="Scripts\spinner.js"></script>
+   <script src="Scripts\weather_air.js"></script>
+   <script src="Scripts\storage_air.js"></script>
+   <script src="Scripts\ui_air.js"></script>
+   <script src="Scripts\app_air.js"></script>
+</body>
+</html>
