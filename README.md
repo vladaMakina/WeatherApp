@@ -6,7 +6,7 @@ Also there are wheather information of a input location. API from www.airvisual.
 <strong>Vanilla JS, FetchAPI, Async/Await, Promises, HTTP requests, Sass, OOP</strong>
 <br>
 <br>
-You can check it out on: https://vladaMakina.github.io/WeatherApp/
+You can check it out on: [https://vladaMakina.github.io/WeatherApp/](https://vladamakina.github.io/WeatherApp/)
 
 
 <br>
