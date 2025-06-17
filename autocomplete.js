@@ -48,7 +48,7 @@ class Autocomplete {
    // ///////////////////////////       COUNTRY       ///////////////////////////////
    // get countries from api server
    getCountries = async () => {
-      const res = await fetch('https://alexkozelj.github.io/AirPollutionApp/countries.json');
+      const res = await fetch('https://vladaMakina.github.io/AirPollutionApp/countries.json');
       // console.log(res);
       this.countries = await res.json();
    };
